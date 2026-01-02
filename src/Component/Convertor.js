@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-
+import React, {useState} from 'react';
 // In simple terms, Hooks are special functions that allow you to use React features—like remembering data (state) or performing tasks when a page loads—inside functional components. 
 // Before Hooks were introduced in React 16.8, you had to write complex "Class components" to use these features. Hooks let you do everything with simpler, cleaner functions. 
 // The 3 Most Common Hooks
@@ -64,7 +63,7 @@ const handleInverse=()=>{
 
   return (
     <div>
-        <div className="container">      
+        <div className={`container my-3 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>      
 <div className="mb-3">
   <label htmlFor="exampleFormControlTextarea1" className="form-label">{props.title}</label>
   <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Enter Text Here" value={text} onChange={handleOnchange}></textarea>
@@ -76,7 +75,7 @@ const handleInverse=()=>{
 <button className="btn btn-info m-2" onClick={handleInverse}>Inverse text</button>
 <button className="btn btn-danger m-2" onClick={reset}>Reset</button>
 </div>
-<div className="container my-3">
+<div className={`container my-3 text-${props.mode === 'dark' ? 'light' : 'dark'}`} >
     <h2>Your Text Summary</h2>   
     <p>{text?.split(" ")?.filter(element=>element?.length !==0)?.length} words and {text?.length} characters</p>
     <p>{0.008 * text?.split(" ")?.filter(element=>element?.length !==0)?.length} Minutes read</p>

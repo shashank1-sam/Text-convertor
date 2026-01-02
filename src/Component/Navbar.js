@@ -1,7 +1,7 @@
 export default function Navbar(props) {
   return (
    <>
-   <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+   <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode} m-0 p-0 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
   <div className="container-fluid">
     <a className="navbar-brand" href="/">{props.Brand}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,27 +13,16 @@ export default function Navbar(props) {
           <a className="nav-link active" aria-current="page" href="/">{props.Home}</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/">{props.About}</a>
+          <a className="nav-link" href="/about">{props.About}</a>
         </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {props.Actions}
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">{props.ActionOne}</a></li>
-            <li><a className="dropdown-item" href="/">{props.AnotherAction}</a></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="/">{props.SomethingElseHere}</a></li>
-          </ul>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" aria-disabled="true" href="/">{props.Contact}</a>
-        </li>
+      
+      
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+      <div className={`form-check form-switch ${props.mode === 'dark' ? 'light' : 'dark'}`}>
+  <input className="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" onClick={props.toggleMode}/>
+  <label className="form-check-label" htmlFor="switchCheckDefault">Enable {props.mode === 'dark' ? 'Light' : 'Dark'} Mode</label>
+</div>
     </div>
   </div>
 </nav>
